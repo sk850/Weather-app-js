@@ -7,7 +7,7 @@ dotenv.config()
 const DATA_DIR = path.join(import.meta.dirname, 'data')
 if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR)
-}
+} //For automation
 
 const WEATHER_FILE = path.join(DATA_DIR, 'weather.json')
 const LOG_FILE = path.join(DATA_DIR, 'weather_log.csv')
@@ -24,11 +24,11 @@ export async function fetchWeather() {
         }
 
         const data = await response.json()
-        const nowUTC = new Date().toISOString()
-        data._last_updated_utc = nowUTC
-        fs.writeFileSync(WEATHER_FILE, JSON.stringify(data, null, 2))
+        const nowUTC = new Date().toISOString() //retrieve current data
+        data._last_updated_utc = nowUTC // Add time data to data object
+        fs.writeFileSync(WEATHER_FILE, JSON.stringify(data, null, 2)) //writ to file
 
-        const header = 'timestamp,city,temperature,description\n'
+        const header = 'timestamp,city,temperature,description\n' //ETL PROCESS
         if (!fs.existsSync(LOG_FILE)) {
             fs.writeFileSync(LOG_FILE, header)
         } else {
@@ -39,11 +39,11 @@ export async function fetchWeather() {
         }
 
         const logEntry = `${nowUTC},${city},${data.main.temp},${data.weather[0].description}\n`
-        fs.appendFileSync(LOG_FILE, logEntry)
+        fs.appendFileSync(LOG_FILE, logEntry) //add to file
 
         console.log(`Weather data updated for ${city} at ${nowUTC}`)
     } catch (err) {
-        console.error('Error fetching weather:', err)
+        console.error('Error fetching weather:', err) //Deal with throw error 
     }
 }
 

@@ -1,4 +1,4 @@
-import express from 'express'
+import express from 'express' //ES6 Module - JS file with exported code
 import dotenv from 'dotenv'
 import fs from 'fs'
 import path from 'path'
@@ -15,13 +15,13 @@ const WEATHER_FILE = path.join(DATA_DIR, 'weather.json')
 const LOG_FILE = path.join(DATA_DIR, 'weather_log.csv')
 
 // Serve static files (HTML, CSS, JS)
-app.use(express.static(path.join(import.meta.dirname, 'public')))
+app.use(express.static(path.join(import.meta.dirname, 'public'))) //static files when a program is run; 'public' is a static directory
 
 // API to get latest weather
 app.get('/api/weather', (req, res) => {
     if (!fs.existsSync(WEATHER_FILE)) return res.status(404).json({ error: 'No weather data available' })
     try {
-        const weatherData = JSON.parse(fs.readFileSync(WEATHER_FILE, 'utf8'))
+        const weatherData = JSON.parse(fs.readFileSync(WEATHER_FILE, 'utf8')) // ENCODING OF FILE, different from file extension
         res.json(weatherData)
     } catch (err) {
         console.error('Error reading weather.json:', err)
