@@ -13,25 +13,25 @@
   ],
   "base": "stations",
   "main": {
-    "temp": 24.84,
-    "feels_like": 24.76,
-    "temp_min": 24.31,
-    "temp_max": 25.83,
-    "pressure": 1003,
-    "humidity": 53,
-    "sea_level": 1003,
+    "temp": 25.9,
+    "feels_like": 25.8,
+    "temp_min": 25.25,
+    "temp_max": 26.83,
+    "pressure": 1005,
+    "humidity": 48,
+    "sea_level": 1005,
     "grnd_level": 1000
   },
   "visibility": 10000,
   "wind": {
-    "speed": 2.68,
-    "deg": 343,
-    "gust": 6.26
+    "speed": 2.24,
+    "deg": 326,
+    "gust": 7.15
   },
   "clouds": {
-    "all": 94
+    "all": 100
   },
-  "dt": 1785065302,
+  "dt": 1785072183,
   "sys": {
     "type": 2,
     "id": 2011528,
@@ -43,5 +43,5 @@
   "id": 2651500,
   "name": "Dartford",
   "cod": 200,
-  "_last_updated_utc": "2026-07-26T11:28:22.502Z"
+  "_last_updated_utc": "2026-07-26T13:23:03.919Z"
 }
